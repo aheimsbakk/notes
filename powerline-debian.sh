@@ -42,6 +42,7 @@ source "/usr/share/powerline/bindings/tmux/powerline.conf"
 EOF
 fi
 
+# Add powerline for vim
 touch ~/.vimrc
 if ! grep -q powerline ~/.vimrc
 then
