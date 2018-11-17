@@ -6,7 +6,7 @@
 # Date  : 2018-11-17
 
 # Install powerline and Vim with Python bindings
-sudo apt-get install -y powerline tmux vim-nox
+sudo dnf install -y powerline tmux tmux-powerline vim vim-powerline
 
 # Add starting powerline daemon and bindings to bash
 if ! grep -q powerline ~/.bashrc
@@ -16,7 +16,7 @@ if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
-  . /usr/share/powerline/bindings/bash/powerline.sh
+  . /usr/share/powerline/bash/powerline.sh
 fi
 EOF
 fi
@@ -38,7 +38,7 @@ touch ~/.tmux.conf
 if ! grep -q powerline ~/.tmux.conf
 then
   cat <<EOF >> ~/.tmux.conf
-source "/usr/share/powerline/bindings/tmux/powerline.conf" 
+source "/usr/share/tmux/powerline.conf"
 EOF
 fi
 
