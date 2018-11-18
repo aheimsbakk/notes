@@ -39,6 +39,7 @@ if ! grep -q powerline ~/.tmux.conf
 then
   cat <<EOF >> ~/.tmux.conf
 source "/usr/share/powerline/bindings/tmux/powerline.conf" 
+set -g mouse on
 EOF
 fi
 
