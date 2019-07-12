@@ -6,7 +6,7 @@
 # Date  : 2019-06-12
 
 # Install termux utils
-apt-get install -y vim-python python tmux git openssh bash-completion
+apt-get install -y vim-python python tmux git openssh bash-completion procps
 pip3 install --upgrade pip
 pip3 install powerline-shell powerline-status
 
@@ -30,7 +30,7 @@ fi
 
 # Bash show only left side of powerline, use that theme
 mkdir -p ~/.config/powerline
-cat <<EOF > ~/.config/powerline/config.json 
+cat <<EOF > ~/.config/powerline/config.json
 {
     "common": {
         "default_top_theme": "ascii"
@@ -43,6 +43,7 @@ cat <<EOF > ~/.config/powerline/config.json
 }
 EOF
 
+mkdir -p ~/.config/powerline-shell
 cat <<EOF > ~/.config/powerline-shell/config.json
 {
   "segments": [
