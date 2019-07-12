@@ -64,7 +64,7 @@ touch ~/.tmux.conf
 if ! grep -q powerline ~/.tmux.conf
 then
   cat <<EOF >> ~/.tmux.conf
-  source "~/../usr/lib/python3.7/site-packages/powerline/bindings/tmux/powerline.conf"
+source "/data/data/com.termux/files/usr/lib/python3.7/site-packages/powerline/bindings/tmux/powerline.conf"
 set -g mouse on
 EOF
 fi
