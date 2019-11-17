@@ -22,14 +22,61 @@ EOF
 fi
 
 # Bash show only left side of powerline, use that theme
-mkdir -p ~/.config/powerline
-cat <<EOF > ~/.config/powerline/config.json 
+mkdir -p ~/.config/powerline/themes/shell
+cat <<EOF > ~/.config/powerline/config.json
 {
-    "ext": {
-        "shell": {
-            "theme": "default_leftonly"
-            }
+  "common": {
+    "default_top_theme": "ascii"
+  },
+  "ext": {
+    "shell": {
+      "theme": "leftonly"
     }
+  }
+}
+EOF
+
+cat <<EOF > ~/.config/powerline/themes/shell/leftonly.json
+{
+  "segments": {
+    "left": [
+      {
+        "function": "powerline.segments.common.net.hostname",
+        "priority": 10
+      },
+      {
+        "function": "powerline.segments.common.env.user",
+        "priority": 30
+      },
+      {
+        "function": "powerline.segments.common.env.virtualenv",
+        "priority": 50
+      },
+      {
+        "function": "powerline.segments.common.vcs.branch",
+        "priority": 40,
+        "args": {
+          "status_colors": 1
+        }
+      },
+      {
+        "function": "powerline.segments.common.vcs.stash",
+        "priority": 40
+      },
+      {
+        "function": "powerline.segments.shell.cwd",
+        "priority": 10
+      },
+      {
+        "function": "powerline.segments.shell.jobnum",
+        "priority": 20
+      },
+      {
+        "function": "powerline.segments.shell.last_pipe_status",
+        "priority": 10
+      }
+    ]
+  }
 }
 EOF
 
