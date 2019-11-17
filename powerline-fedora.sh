@@ -27,7 +27,7 @@ mkdir -p ~/.config/powerline/themes/shell
 cat <<EOF > ~/.config/powerline/config.json
 {
   "common": {
-    "default_top_theme": "ascii"
+    "default_top_theme": "unicode"
   },
   "ext": {
     "shell": {
