@@ -4,9 +4,18 @@
 
 [Powerline] is a statusline plugin for vim, and provides statuslines and prompts for several other applications, including zsh, bash, tmux, IPython, Awesome and Qtile.
 
-- `powerline-debian.sh` --- configure powerline on Debian such as Raspberry PI
-- `powerline-fedora.sh` --- configure powerline on Fedora, tested on Fedora 31
-- `powerline-termux.sh` --- configure powerline for Android Termux
+- `powerline.sh` --- configure powerline
+
+Usage.
+
+1. Edit `~/.bashrc`.
+    ```bash
+    vim ~/.vimrc
+    ```
+0. Add the script.
+    ```bash
+    source powerline.sh
+    ```
 
 ## Hyperthreding
 
