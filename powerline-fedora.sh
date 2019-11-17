@@ -6,7 +6,8 @@
 # Date  : 2018-11-17
 
 # Install powerline and Vim with Python bindings
-sudo dnf install -y powerline-status tmux tmux-powerline vim vim-powerline
+sudo dnf install -y powerline tmux tmux-powerline vim vim-powerline
+pip3 install --user powerline-gitstatus
 
 # Add starting powerline daemon and bindings to bash
 if ! grep -q powerline ~/.bashrc
@@ -53,14 +54,7 @@ cat <<EOF > ~/.config/powerline/themes/shell/leftonly.json
         "priority": 50
       },
       {
-        "function": "powerline.segments.common.vcs.branch",
-        "priority": 40,
-        "args": {
-          "status_colors": 1
-        }
-      },
-      {
-        "function": "powerline.segments.common.vcs.stash",
+        "function": "powerline_gitstatus.gitstatus",
         "priority": 40
       },
       {
@@ -76,6 +70,28 @@ cat <<EOF > ~/.config/powerline/themes/shell/leftonly.json
         "priority": 10
       }
     ]
+  }
+}
+EOF
+
+mkdir -p ~/.config/powerline/colorschemes
+cat <<EOF > ~/.config/powerline/colorschemes/default.json
+{
+  "groups": {
+    "gitstatus":                 { "fg": "gray8",           "bg": "gray2", "attrs": [] },
+    "gitstatus_branch":          { "fg": "gray8",           "bg": "gray2", "attrs": [] },
+    "gitstatus_branch_clean":    { "fg": "green",           "bg": "gray2", "attrs": [] },
+    "gitstatus_branch_dirty":    { "fg": "gray8",           "bg": "gray2", "attrs": [] },
+    "gitstatus_branch_detached": { "fg": "mediumpurple",    "bg": "gray2", "attrs": [] },
+    "gitstatus_tag":             { "fg": "darkcyan",        "bg": "gray2", "attrs": [] },
+    "gitstatus_behind":          { "fg": "gray10",          "bg": "gray2", "attrs": [] },
+    "gitstatus_ahead":           { "fg": "gray10",          "bg": "gray2", "attrs": [] },
+    "gitstatus_staged":          { "fg": "green",           "bg": "gray2", "attrs": [] },
+    "gitstatus_unmerged":        { "fg": "brightred",       "bg": "gray2", "attrs": [] },
+    "gitstatus_changed":         { "fg": "mediumorange",    "bg": "gray2", "attrs": [] },
+    "gitstatus_untracked":       { "fg": "brightestorange", "bg": "gray2", "attrs": [] },
+    "gitstatus_stashed":         { "fg": "darkblue",        "bg": "gray2", "attrs": [] },
+    "gitstatus:divider":         { "fg": "gray8",           "bg": "gray2", "attrs": [] }
   }
 }
 EOF
