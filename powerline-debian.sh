@@ -55,7 +55,10 @@ cat <<EOF > ~/.config/powerline/themes/shell/leftonly.json
       },
       {
         "function": "powerline_gitstatus.gitstatus",
-        "priority": 40
+        "priority": 40,
+         "args": {
+          "show_tag": "exact"
+        }
       },
       {
         "function": "powerline.segments.shell.cwd",
