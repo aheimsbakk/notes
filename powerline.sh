@@ -123,6 +123,9 @@ set modelines=5
 syntax on
 EOF
 
+# Workaround for Ubuntu
+export PATH=${PATH}:$HOME/.local/bin
+
 # Starting powerline daemon and bindings to bash
 if [ -f $(which $HOME/.local/bin/powerline-daemon) ]; then
   $HOME/.local/bin/powerline-daemon -q
