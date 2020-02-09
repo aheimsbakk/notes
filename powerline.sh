@@ -123,6 +123,9 @@ set modelines=5
 syntax on
 EOF
 
+# Set my favorit editor
+export EDITOR=vim
+
 # Workaround for Ubuntu
 export PATH=${PATH}:$HOME/.local/bin
 
