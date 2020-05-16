@@ -8,11 +8,11 @@
 
 ### Usage
 
-1. Edit `~/.bashrc`.
+1. Edit `~/.bashrc`
     ```bash
     vim ~/.bashrc
     ```
-0. Add the script.
+0. Add the script
     ```bash
     source powerline.sh
     ```
