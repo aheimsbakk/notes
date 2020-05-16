@@ -98,13 +98,15 @@ EOF
 EOF
 
 # Add powerline for tmux
-[ ! -f $HOME/.tmux.conf -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF >> $HOME/.tmux.conf
+[ ! -f $HOME/.tmux.conf -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $HOME/.tmux.conf
 source "$PL_DIR/bindings/tmux/powerline.conf"
+set -g update-environment "DISPLAY SSH_CONNECTION SSH_CLIENT SSH_TTY"
+set-environment -g "SSH_AUTH_SOCK" \$HOME/.ssh/ssh_auth_sock
 set -g mouse on
 EOF
 
 # Add powerline for vim
-[ ! -f $HOME/.vimrc -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF >> $HOME/.vimrc
+[ ! -f $HOME/.vimrc -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $HOME/.vimrc
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
@@ -124,6 +126,19 @@ set modeline
 set modelines=5
 syntax on
 EOF
+
+# Add ssh rc for enabling permanent ssh socket for tmux
+mkdir -p $HOME/.ssh
+[ ! -f $HOME/.ssh/rc -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $HOME/.ssh/rc
+#!/bin/bash
+if [ -S "\$SSH_AUTH_SOCK" ]; then
+    ln -sf \$SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+fi
+EOF
+chmod +x $HOME/.ssh/rc
+
+# Ensure that we've got a ssh socket
+$HOME/.ssh/rc
 
 # Set my favorit editor
 export EDITOR=vim
