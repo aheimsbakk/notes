@@ -1,8 +1,8 @@
 # Ramblings of a demented sysadmin
 
-## [Powerline]()
+## [Powerline][]
 
-[Powerline]() is a status line plugin for `vim`, and provides status line and prompts for several other applications, including `zsh`, `bash`, `tmux`, IPython, Awesome and Qtile.
+[Powerline][] is a status line plugin for `vim`, and provides status line and prompts for several other applications, including `zsh`, `bash`, `tmux`, IPython, Awesome and Qtile.
 
 - `powerline.sh` --- configure powerline for `bash`, `vim` and `tmux` with fixes for `SSH_AUTH_SOCK` for `tmux`
 
