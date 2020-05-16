@@ -24,7 +24,7 @@ test -f $PL_DIR/bindings/bash/powerline.sh || pip3 install --user powerline-stat
 test -f $PL_CNF_DIR/config.json || cat <<EOF > $PL_CNF_DIR/config.json
 {
   "common": {
-    "default_top_theme": "unicode"
+    "default_top_theme": "unicode_terminus_condensed"
   },
   "ext": {
     "shell": {
