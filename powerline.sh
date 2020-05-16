@@ -131,7 +131,7 @@ EOF
 mkdir -p $HOME/.ssh
 [ ! -f $HOME/.ssh/rc -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $HOME/.ssh/rc
 #!/bin/bash
-if [ -S "\$SSH_AUTH_SOCK" ]; then
+if [ -S "\$SSH_AUTH_SOCK" -a ! -L "\$SSH_AUTH_SOCK" ]; then
     ln -sf \$SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
 fi
 EOF
