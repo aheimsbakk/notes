@@ -10,7 +10,7 @@
 
 1. Edit `~/.bashrc`.
     ```bash
-    vim ~/.vimrc
+    vim ~/.bashrc
     ```
 0. Add the script.
     ```bash
