@@ -5,6 +5,9 @@
 # URL   : https://github.com/aheimsbakk/notes
 # Date  : 2019-11-17
 
+# Overwrite old configuration
+POWERLINE_OVERWRITE=${POWERLINE_OVERWRITE:-0}
+
 # Powerline directories
 PY_VER="$($(which python3) --version | grep -Eo '[[:digit:]]\.[[:digit:]]+')"
 PL_DIR="$HOME/.local/lib/python$PY_VER/site-packages/powerline"
@@ -18,10 +21,9 @@ PROMPT_COMMAND="history -n"
 
 # Install powerline
 test -f $PL_DIR/bindings/bash/powerline.sh || pip3 install --user powerline-status powerline-gitstatus
-
 # Bash show only left side of powerline, use that theme
 ( test -d $PL_CNF_DIR/colorschemes || test -d $PL_CNF_DIR/themes/shell ) || mkdir -p $PL_CNF_DIR/{colorschemes,themes/shell}
-test -f $PL_CNF_DIR/config.json || cat <<EOF > $PL_CNF_DIR/config.json
+[ ! -f $PL_CNF_DIR/config.json -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $PL_CNF_DIR/config.json
 {
   "common": {
     "default_top_theme": "powerline_terminus"
@@ -34,7 +36,7 @@ test -f $PL_CNF_DIR/config.json || cat <<EOF > $PL_CNF_DIR/config.json
 }
 EOF
 
-test -f $PL_CNF_DIR/themes/shell/leftonly.json || cat <<EOF > $PL_CNF_DIR/themes/shell/leftonly.json
+[ ! -f $PL_CNF_DIR/themes/shell/leftonly.json -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $PL_CNF_DIR/themes/shell/leftonly.json
 {
   "segments": {
     "left": [
@@ -74,7 +76,7 @@ test -f $PL_CNF_DIR/themes/shell/leftonly.json || cat <<EOF > $PL_CNF_DIR/themes
 }
 EOF
 
-test -f $PL_CNF_DIR/colorschemes/default.json || cat <<EOF > $PL_CNF_DIR/colorschemes/default.json
+[ ! -f $PL_CNF_DIR/colorschemes/default.json -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $PL_CNF_DIR/colorschemes/default.json
 {
   "groups": {
     "gitstatus":                 { "fg": "gray8",           "bg": "gray2", "attrs": [] },
@@ -96,13 +98,13 @@ test -f $PL_CNF_DIR/colorschemes/default.json || cat <<EOF > $PL_CNF_DIR/colorsc
 EOF
 
 # Add powerline for tmux
-test -f $HOME/.tmux.conf || cat <<EOF >> $HOME/.tmux.conf
+[ ! -f $HOME/.tmux.conf -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF >> $HOME/.tmux.conf
 source "$PL_DIR/bindings/tmux/powerline.conf"
 set -g mouse on
 EOF
 
 # Add powerline for vim
-test -f $HOME/.vimrc || cat <<EOF >> $HOME/.vimrc
+[ ! -f $HOME/.vimrc -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF >> $HOME/.vimrc
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
