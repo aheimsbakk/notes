@@ -132,13 +132,18 @@ mkdir -p $HOME/.ssh
 [ ! -f $HOME/.ssh/rc -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $HOME/.ssh/rc
 #!/bin/bash
 if [ ! -L "\$SSH_AUTH_SOCK" -a -S "\$SSH_AUTH_SOCK" ]; then
-    ln -sf \$SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+  ln -sf \$SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+fi
+
+if read proto cookie && [ -n "\$DISPLAY" ]; then
+  if [ "\$(echo \$DISPLAY | cut -c1-10)" = "localhost:" ]; then
+    echo add unix:\$(echo \$DISPLAY | cut -c11-) \$proto \$cookie
+  else
+    echo add \$DISPLAY \$proto \$cookie
+  fi | xauth -q -
 fi
 EOF
 chmod +x $HOME/.ssh/rc
-
-# Ensure that we've got a ssh socket
-$HOME/.ssh/rc
 
 # Set my favorit editor
 export EDITOR=vim
