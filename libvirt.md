@@ -25,23 +25,30 @@ sudo usermod -aG libvirtd $USER
 1. Create a default `preseed.cfg` file. It contain a random root password for this installation. We change the installation to be atomic layout, just one big partition.
     ```bash
     osinfo-install-script -p jeos debian10
-    sed -i 's/home/atomic/' preseed.cfg
-    sed -i '$a d-i partman-basicfilesystems/no_swap boolean false' preseed.cfg
+    sed -i 's/home/oneroot/' preseed.cfg
+    cat <<EOF >> preseed.cfg
+    d-i partman-basicfilesystems/no_swap boolean false
+    d-i partman-auto/expert_recipe string oneroot :: 1000 50 -1 ext4 \\
+     \$primary{ } \$bootable{ } method{ format } \\
+     format{ } use_filesystem{ } filesystem{ ext4 } \\
+     mountpoint{ / } \\
+    .
+    EOF
     ```
 0. Edit `preseed.cfg` and make your customations.
 0. Install VM. Send back some information to the community with popularity contest.
     ```bash
     virt-install --connect qemu:///system \
-      --name debian10 \
-      --ram 2024 \
-      --vcpus 4 \
-      --disk size=10,driver.discard=unmap,target.bus=virtio \
-      --os-type linux \
-      --os-variant debian10 \
-      --graphics none \
       --console pty,target_type=serial \
+      --disk size=10,driver.discard=unmap,target.bus=virtio \
+      --graphics none \
       --initrd-inject preseed.cfg \
       --location http://ftp.no.debian.org/debian/dists/buster/main/installer-amd64 \
+      --name debian10 \
+      --os-type linux \
+      --os-variant debian10 \
+      --ram 2024 \
+      --vcpus 4 \
       --extra-args 'console=ttyS0,115200n8 serial locale=nb_NO keymap=no auto=true mirror/country=manual mirror/http/hostname=ftp.no.debian.org mirror/http/directory=/debian mirror/http/proxy= passwd/make-user=false popularity-contest/participate=true file=/preseed.cfg'
     ```
 
