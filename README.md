@@ -6,7 +6,13 @@
 
 - `powerline.sh` --- configure powerline for `bash`, `vim` and `tmux` with fixes for `SSH_AUTH_SOCK` for `tmux`
 
-### Usage
+### Install for all users
+
+```bash
+wget -O - https://raw.githubusercontent.com/aheimsbakk/notes/master/install-powerline.sh | sudo bash
+```
+
+### Install for one user
 
 1. Edit `~/.bashrc`
     ```bash

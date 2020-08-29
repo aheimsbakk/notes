@@ -8,10 +8,20 @@
 # Overwrite old configuration
 POWERLINE_OVERWRITE=${POWERLINE_OVERWRITE:-0}
 
+# Set overwrite if we find .powerline-overwrite in the home folder.
+if [[ -f "$HOME/.powerline-overwrite" ]]; then
+  POWERLINE_OVERWRITE=1
+  rm "$HOME/.powerline-overwrite"
+fi
+
 # Powerline directories
 PY_VER="$($(which python3) --version | grep -Eo '[[:digit:]]\.[[:digit:]]+')"
 PL_DIR="$HOME/.local/lib/python$PY_VER/site-packages/powerline"
 PL_CNF_DIR="$HOME/.config/powerline"
+
+# Create directories
+mkdir -p $PL_CNF_DIR/colorschemes
+mkdir -p $PL_CNF_DIR/themes/shell
 
 # Fix bash history
 HISTFILESIZE=-1
