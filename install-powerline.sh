@@ -11,7 +11,7 @@ BASE_URL=https://raw.githubusercontent.com/aheimsbakk/notes/master
 source /etc/os-release
 
 case "$ID" in
-  debian | ubuntu)
+  debian | raspbian | ubuntu)
     export DEBIAN_FRONTEND=noninteractive
     apt-get update
     apt-get -y install python3-pip git tmux vim-nox wget
