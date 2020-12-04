@@ -126,7 +126,7 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 set t_Co=256
 set bg=dark
 set list
-set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:·
+set listchars=nbsp:Â¬,tab:>-,extends:Â»,precedes:Â«,trail:â€¢
 set ai
 set et
 set ts=2
