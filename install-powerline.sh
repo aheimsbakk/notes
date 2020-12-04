@@ -30,9 +30,6 @@ esac
 
 wget -q -nc -O /etc/profile.d/powerline.sh $BASE_URL/powerline.sh
 
-# Used for debugging
-#cp -a powerline.sh /etc/profile.d/powerline.sh
-
 echo
 echo "Log out and in again to activate powerline."
 echo "Or source the configuration in the current shell:"
