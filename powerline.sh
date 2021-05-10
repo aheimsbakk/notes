@@ -36,7 +36,7 @@ test -f $PL_DIR/bindings/bash/powerline.sh || pip3 install --user powerline-stat
 [ ! -f $PL_CNF_DIR/config.json -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $PL_CNF_DIR/config.json
 {
   "common": {
-    "default_top_theme": "powerline_terminus"
+    "default_top_theme": "ascii"
   },
   "ext": {
     "shell": {
