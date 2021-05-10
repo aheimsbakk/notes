@@ -14,7 +14,7 @@ case "$ID" in
   debian | raspbian | ubuntu)
     export DEBIAN_FRONTEND=noninteractive
     apt-get update
-    apt-get -y install python3-pip git tmux vim-nox wget
+    apt-get -y install python3-pip git tmux vim-nox wget fonts-powerline
   ;;
   fedora)
     dnf -y install python3-pip git tmux vim wget
