@@ -135,6 +135,24 @@ set sw=2
 set modeline
 set modelines=5
 syntax on
+
+" https://github.com/junegunn/vim-plug
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+call plug#begin('~/.vim/plugged')
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
+  Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+call plug#end()
+
+" Folding (zc zo) za zA zr zR zm zM
+set foldmethod=expr
+  \ foldexpr=lsp#ui#vim#folding#foldexpr()
+  \ foldtext=lsp#ui#vim#folding#foldtext()
+
+let g:lsp_signs_enabled = 1           " enable signs
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
 EOF
 
 # Add ssh rc for enabling permanent ssh socket for tmux
