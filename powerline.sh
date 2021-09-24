@@ -116,7 +116,10 @@ set -g mouse on
 EOF
 
 # Add VIM plug plugin
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim
+
+[ "$POWERLINE_OVERWRITE" -gt 0 ] && rm -f ~/.vim/autoload/plug.vim
+test -f ~/.vim/autoload/plug.vim ||
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim
 
 # Add powerline for vim
 [ ! -f $HOME/.vimrc -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $HOME/.vimrc
