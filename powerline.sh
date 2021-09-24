@@ -115,6 +115,9 @@ set-environment -g "SSH_AUTH_SOCK" \$HOME/.ssh/ssh_auth_sock
 set -g mouse on
 EOF
 
+# Add VIM plug plugin
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim
+
 # Add powerline for vim
 [ ! -f $HOME/.vimrc -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $HOME/.vimrc
 python3 from powerline.vim import setup as powerline_setup
@@ -137,8 +140,7 @@ set modelines=5
 syntax on
 
 " https://github.com/junegunn/vim-plug
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
   Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
