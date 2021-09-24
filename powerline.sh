@@ -20,8 +20,8 @@ PL_DIR="$HOME/.local/lib/python$PY_VER/site-packages/powerline"
 PL_CNF_DIR="$HOME/.config/powerline"
 
 # Create directories
-mkdir -p $PL_CNF_DIR/colorschemes
-mkdir -p $PL_CNF_DIR/themes/shell
+mkdir -p "$PL_CNF_DIR/colorschemes"
+mkdir -p "$PL_CNF_DIR/themes/shell"
 
 # Fix bash history
 HISTFILESIZE=-1
@@ -53,6 +53,13 @@ EOF
       {
         "function": "powerline.segments.common.net.hostname",
         "priority": 10
+      },
+      {
+        "function": "powerline.segments.common.env.environment",
+        "priority": 20,
+        "args": {
+          "variable": "DISTTAG"
+        }
       },
       {
         "function": "powerline.segments.common.env.user",
@@ -137,8 +144,7 @@ set modelines=5
 syntax on
 
 " https://github.com/junegunn/vim-plug
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
   Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
@@ -156,8 +162,8 @@ let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal 
 EOF
 
 # Add ssh rc for enabling permanent ssh socket for tmux
-mkdir -p $HOME/.ssh
-[ ! -f $HOME/.ssh/rc -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $HOME/.ssh/rc
+mkdir -p "$HOME/.ssh"
+[ ! -f "$HOME/.ssh/rc" ] || [ "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > "$HOME/.ssh/rc"
 #!/bin/bash
 if [ ! -L "\$SSH_AUTH_SOCK" -a -S "\$SSH_AUTH_SOCK" ]; then
   ln -sf \$SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
@@ -171,7 +177,7 @@ if read proto cookie && [ -n "\$DISPLAY" ]; then
   fi | xauth -q -
 fi
 EOF
-chmod +x $HOME/.ssh/rc
+chmod +x "$HOME/.ssh/rc"
 
 # Set my favorit editor
 export EDITOR=vim
