@@ -13,7 +13,7 @@ source /etc/os-release
 case "$ID" in
   debian | raspbian | ubuntu)
     export DEBIAN_FRONTEND=noninteractive
-    if [ "$(uname -m)" == "armv7l" ]; then
+    if [ "$(uname -m)" = "armv7l" ]; then
       wget -nc -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-arm64
     else
       wget -nc -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64
