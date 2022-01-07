@@ -12,6 +12,7 @@ source /etc/os-release
 
 case "$ID" in
   debian | raspbian | ubuntu)
+    rm -f /usr/local/bin/powerline-go
     export DEBIAN_FRONTEND=noninteractive
     if [ "$(uname -m)" = "armv7l" ]; then
       wget -q -nc -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-arm
@@ -36,6 +37,7 @@ case "$ID" in
   ;;
 esac
 
+rm -f /etc/profile.d/powerline-zgo.sh /etc/profile.d/powerline-other.sh
 wget -q -nc -O /etc/profile.d/powerline-zgo.sh $BASE_URL/powerline-zgo.sh
 wget -q -nc -O /etc/profile.d/powerline-other.sh $BASE_URL/powerline-other.sh
 
