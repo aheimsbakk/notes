@@ -28,7 +28,11 @@ To update/overwrite configuration for `bash`, `vim` and `tmux` run
 ```bash
 POWERLINE_OVERWRITE=1 source .bashrc
 ```
+### Install plugins
 
+When you start Vim the first time. Install plugins:
+
+    :PlugInstall
 
 ## Hyperthreding
 
