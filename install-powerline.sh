@@ -37,8 +37,8 @@ case "$ID" in
   ;;
 esac
 
-rm -f /etc/profile.d/powerline-zgo.sh /etc/profile.d/powerline-other.sh
-wget -q -nc -O /etc/profile.d/powerline-zgo.sh $BASE_URL/powerline-zgo.sh
+rm -f /etc/profile.d/powerline-zgo.sh /etc/profile.d/powerline-other.sh /etc/profile.d/z-powerline-go.sh
+wget -q -nc -O /etc/profile.d/z-powerline-go.sh $BASE_URL/powerline-zgo.sh
 wget -q -nc -O /etc/profile.d/powerline-other.sh $BASE_URL/powerline-other.sh
 
 echo
