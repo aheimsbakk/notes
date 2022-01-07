@@ -4,7 +4,8 @@
 
 [Powerline][] is a status line plugin for `vim`, and provides status line and prompts for several other applications, including `zsh`, `bash`, `tmux`, IPython, Awesome and Qtile.
 
-- `powerline.sh` --- configure powerline for `bash`, `vim` and `tmux` with fixes for `SSH_AUTH_SOCK` for `tmux`
+- `powerline-other.sh` --- configure powerline for `bash` using [powerline-go](https://github.com/justjanne/powerline-go)
+- `powerline-zgo.sh` --- configure powerline for `vim` and `tmux` with fixes for `SSH_AUTH_SOCK` for `tmux`
 
 ### Install for all users
 
@@ -20,7 +21,8 @@ wget -O - https://raw.githubusercontent.com/aheimsbakk/notes/master/install-powe
     ```
 0. Add the script
     ```bash
-    source powerline.sh
+    source powerline-other.sh
+    source powerline-zgo.sh
     ```
 
 To update/overwrite configuration for `bash`, `vim` and `tmux` run
