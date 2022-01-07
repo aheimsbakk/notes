@@ -192,7 +192,7 @@ export EDITOR=vim
 export PATH=${PATH}:$HOME/.local/bin
 
 # Turn off colors for ls
-alias ls="ls -F --color=never"
+#alias ls="ls -F --color=never"
 
 # Starting powerline daemon and bindings to bash
 if [ -f $(which $HOME/.local/bin/powerline-daemon) ]; then

@@ -13,14 +13,16 @@ source /etc/os-release
 case "$ID" in
   debian | raspbian | ubuntu)
     export DEBIAN_FRONTEND=noninteractive
+    wget -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64
+    chmod +x /usr/local/bin/powerline-go
     apt-get update
     apt-get -y install python3-pip git tmux vim-nox wget fonts-powerline
   ;;
   fedora)
-    dnf -y install python3-pip git tmux vim wget
+    dnf -y install python3-pip git tmux vim wget powerline-go
   ;;
   rhel | centos)
-    yum -y install python3-pip git tmux vim wget
+    yum -y install python3-pip git tmux vim wget powerline-go
   ;;
   *)
     echo Unknown OS.
@@ -28,7 +30,7 @@ case "$ID" in
   ;;
 esac
 
-wget -q -nc -O /etc/profile.d/powerline.sh $BASE_URL/powerline.sh
+wget -q -nc -O /etc/profile.d/powerline.sh $BASE_URL/powerline-go.sh
 
 echo
 echo "Log out and in again to activate powerline."
