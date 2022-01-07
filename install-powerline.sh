@@ -30,11 +30,11 @@ case "$ID" in
   ;;
 esac
 
-wget -q -nc -O /etc/profile.d/powerline.sh $BASE_URL/powerline-go.sh
+wget -q -nc -O /etc/profile.d/powerline-go.sh $BASE_URL/powerline-go.sh
 
 echo
-echo "Log out and in again to activate powerline."
-echo "Or source the configuration in the current shell:"
-echo
-echo "  source /etc/profile.d/powerline.sh"
+echo "Log out and in again to activate powerline-go."
+#echo "Or source the configuration in the current shell:"
+#echo
+#echo "  source /etc/profile.d/powerline.sh"
 echo
