@@ -14,9 +14,9 @@ case "$ID" in
   debian | raspbian | ubuntu)
     export DEBIAN_FRONTEND=noninteractive
     if [ "$(uname -m)" == "armv7l" ]; then
-      wget -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-arm64
+      wget -nc -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-arm64
     else
-      wget -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64
+      wget -nc -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64
     fi
     chmod +x /usr/local/bin/powerline-go
     apt-get update
