@@ -137,7 +137,7 @@ set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set t_Co=256
-set bg=dark
+set bg=light
 set list
 set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
 set ai
@@ -194,10 +194,3 @@ export PATH=${PATH}:$HOME/.local/bin
 # Turn off colors for ls
 #alias ls="ls -F --color=never"
 
-# Starting powerline daemon and bindings to bash
-if [ -f $(which $HOME/.local/bin/powerline-daemon) ]; then
-  $HOME/.local/bin/powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  source $PL_DIR/bindings/bash/powerline.sh
-fi
