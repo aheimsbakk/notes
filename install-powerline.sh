@@ -13,7 +13,11 @@ source /etc/os-release
 case "$ID" in
   debian | raspbian | ubuntu)
     export DEBIAN_FRONTEND=noninteractive
-    wget -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64
+    if [ "$(uname -m)" == "armv7l" ]; then
+      wget -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-arm64
+    else
+      wget -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64
+    fi
     chmod +x /usr/local/bin/powerline-go
     apt-get update
     apt-get -y install python3-pip git tmux vim-nox wget fonts-powerline
