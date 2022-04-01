@@ -45,6 +45,6 @@ echo
 echo "Log out and in again to activate powerline-go."
 echo "Or source the configuration in the current shell:"
 echo
-echo "  source /etc/profile.d/powerline-zgo.sh"
 echo "  source /etc/profile.d/powerline-other.sh"
+echo "  source /etc/profile.d/z-powerline-go.sh"
 echo
