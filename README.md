@@ -31,7 +31,7 @@ POWERLINE_OVERWRITE=1 source .bashrc
 ### Install for all users
 
 ```bash
-wget -O - https://raw.githubusercontent.com/aheimsbakk/notes/master/install-powerline.sh | sudo bash
+wget -O - https://raw.githubusercontent.com/aheimsbakk/notes/master/install-powerline-go.sh | sudo bash
 ```
 
 ### Install for one user
