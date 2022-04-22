@@ -13,7 +13,7 @@ source /etc/os-release
 case "$ID" in
   debian | raspbian | ubuntu)
     apt-get update
-    apt-get -y install python3-pip git tmux vim-nox wget fonts-powerline
+    apt-get -y install python3-pip git tmux vim-nox wget fonts-powerline curl
   ;;
   fedora)
     dnf -y install python3-pip git tmux vim wget
