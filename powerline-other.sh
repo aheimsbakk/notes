@@ -156,6 +156,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/vim-lsp-settings'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 call plug#end()
 
 " Folding (zc zo) za zA zr zR zm zM
