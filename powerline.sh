@@ -120,6 +120,7 @@ source "$PL_DIR/bindings/tmux/powerline.conf"
 set -g update-environment "DISPLAY SSH_CONNECTION SSH_CLIENT SSH_TTY"
 set-environment -g "SSH_AUTH_SOCK" \$HOME/.ssh/ssh_auth_sock
 set -g mouse on
+bind -n C-s set-window-option synchronize-panes
 EOF
 
 # Add VIM plug plugin
