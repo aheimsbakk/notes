@@ -73,7 +73,18 @@ EOF
         "function": "powerline_gitstatus.gitstatus",
         "priority": 40,
         "args": {
-          "show_tag": "exact"
+          "show_tag": "exact",
+          "formats": {
+            "branch": "\ue0a0{}",
+            "tag": " *{}",
+            "behind": " ↓{}",
+            "ahead": " ↑{}",
+            "staged": " ●{}",
+            "unmerged": " x{}",
+            "changed": " +{}",
+            "untracked": " …{}",
+            "stashed": " ○{}"
+          }
         }
       },
       {
