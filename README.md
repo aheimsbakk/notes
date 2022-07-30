@@ -6,6 +6,12 @@
 
 - `powerline.sh` --- configure powerline for `bash`, `vim` and `tmux`.
 
+### Install for all users
+
+```bash
+wget -O - https://raw.githubusercontent.com/aheimsbakk/notes/master/install-powerline.sh | sudo bash
+```
+
 ### Install for one user
 
 1. Edit `~/.bashrc`
