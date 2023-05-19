@@ -8,7 +8,7 @@
 
 BASE_URL=https://raw.githubusercontent.com/aheimsbakk/notes/master
 
-source /etc/os-release
+. /etc/os-release
 
 rm -f /usr/local/bin/powerline-go
 if [ "$(uname -m)" = "armv7l" ]; then

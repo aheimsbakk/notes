@@ -8,7 +8,7 @@
 
 BASE_URL=https://raw.githubusercontent.com/aheimsbakk/notes/master
 
-source /etc/os-release
+. /etc/os-release
 
 case "$ID" in
   debian | raspbian | ubuntu)
