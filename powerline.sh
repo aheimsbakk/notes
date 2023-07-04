@@ -30,7 +30,7 @@ HISTTIMEFORMAT="%a %b %d %T %Z %Y: "
 PROMPT_COMMAND="history -n"
 
 # Install powerline
-test -f $PL_DIR/bindings/bash/powerline.sh || ( pip3 install wheel; pip3 install --user powerline-status powerline-gitstatus )
+test -f $PL_DIR/bindings/bash/powerline.sh || ( pip3 install --break-system-packages wheel; pip3 install --break-system-packages --user powerline-status powerline-gitstatus )
 # Bash show only left side of powerline, use that theme
 ( test -d $PL_CNF_DIR/colorschemes || test -d $PL_CNF_DIR/themes/shell ) || mkdir -p $PL_CNF_DIR/{colorschemes,themes/shell}
 [ ! -f $PL_CNF_DIR/config.json -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $PL_CNF_DIR/config.json
