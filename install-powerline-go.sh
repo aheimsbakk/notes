@@ -12,11 +12,11 @@ BASE_URL=https://raw.githubusercontent.com/aheimsbakk/notes/master
 
 rm -f /usr/local/bin/powerline-go
 if [ "$(uname -m)" = "armv7l" ]; then
-  wget -q -nc -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.22.1/powerline-go-linux-arm
+  wget -q -nc -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.24/powerline-go-linux-arm
 elif [ "$(uname -m)" = "aarch64" ]; then
-  wget -q -nc -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.22.1/powerline-go-linux-arm64
+  wget -q -nc -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.24/powerline-go-linux-arm64
 else
-  wget -q -nc -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.22.1/powerline-go-linux-amd64
+  wget -q -nc -O /usr/local/bin/powerline-go https://github.com/justjanne/powerline-go/releases/download/v1.24/powerline-go-linux-amd64
 fi
 chmod +x /usr/local/bin/powerline-go
 
