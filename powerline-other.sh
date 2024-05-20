@@ -34,7 +34,7 @@ source /etc/os-release
 
 # Install powerline
 case "$VERSION_CODENAME" in
-  bookworm)
+  bookworm|noble)
     test -f $PL_DIR/bindings/bash/powerline.sh || ( pip3 install --break-system-packages --user wheel; pip3 install --break-system-packages --user powerline-status powerline-gitstatus )
     ;;
   *)
