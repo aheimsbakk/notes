@@ -13,7 +13,7 @@ case "$1" in
 
     off|OFF)
         echo Trying to turn OFF hyperthreading
-        for i in $(grep  . $cpu_path/cpu*/topology/thread_siblings_list | cut -s -d, -f2 | sort -n -u); do
+        for i in $(grep  . $cpu_path/cpu*/topology/thread_siblings_list | cut -s -d- -f2 | sort -n -u); do
             echo - turning off logical CPU $i
             echo 0 > $cpu_path/cpu$i/online
         done
