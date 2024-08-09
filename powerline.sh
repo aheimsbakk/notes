@@ -178,6 +178,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/vim-lsp-settings'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'freitass/todo.txt-vim'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 call plug#end()
 
@@ -188,6 +189,8 @@ set foldmethod=expr
 
 let g:lsp_signs_enabled = 1           " enable signs
 let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+'let g:mkdp_preview_options = { "uml": { "server": "https://krokiserver/plantuml", "imageFormat": "svg" } }
+let maplocalleader='t'
 EOF
 
 # Add ssh rc for enabling permanent ssh socket for tmux
