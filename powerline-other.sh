@@ -188,7 +188,7 @@ set foldmethod=expr
 
 let g:lsp_signs_enabled = 1           " enable signs
 let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-'let g:mkdp_preview_options = { "uml": { "server": "https://krokiserver/plantuml", "imageFormat": "svg" } }
+" let g:mkdp_preview_options = { "uml": { "server": "https://krokiserver/plantuml", "imageFormat": "svg" } }
 let maplocalleader='t'
 EOF
 
