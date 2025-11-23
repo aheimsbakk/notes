@@ -41,6 +41,14 @@ case "$VERSION_CODENAME" in
     test -f $PL_DIR/bindings/bash/powerline.sh || ( pip3 install --user wheel; pip3 install --user powerline-status powerline-gitstatus )
     ;;
 esac
+
+# Install powerline
+case "$ID" in
+  alpine)
+    test -f $PL_DIR/bindings/bash/powerline.sh || ( pip3 install --break-system-packages --user wheel; pip3 install --break-system-packages --user powerline-status powerline-gitstatus )
+    ;;
+esac
+
 # Bash show only left side of powerline, use that theme
 ( test -d $PL_CNF_DIR/colorschemes || test -d $PL_CNF_DIR/themes/shell ) || mkdir -p $PL_CNF_DIR/{colorschemes,themes/shell}
 [ ! -f $PL_CNF_DIR/config.json -o "$POWERLINE_OVERWRITE" -gt 0 ] && cat <<EOF > $PL_CNF_DIR/config.json

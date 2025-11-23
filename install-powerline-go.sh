@@ -32,6 +32,9 @@ case "$ID" in
   rhel | centos)
     yum -y install python3-pip git tmux vim wget
   ;;
+  alpine)
+    apk add py3-pip git tmux vim wget curl
+  ;;
   *)
     echo Unknown OS.
     exit 1
